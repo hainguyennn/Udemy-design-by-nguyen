@@ -1,0 +1,166 @@
+header {
+    @include styleText($color-black-light, $fs-1, $fw-normal);
+}
+.input-group {
+    .form-control {
+        padding: $pd-1 $pd-0 + 7;
+        background-color: $color-white-cream;
+        font-size: $fs-1;
+        border: 1px solid $color-white-cream;
+        &:focus {
+            box-shadow: none;
+            border-top: 1px solid $color-gray-6;
+            border-left: 1px solid $color-gray-6;
+            border-bottom: 1px solid $color-gray-6;
+            border-right: transparent;
+            transition: none;
+            background-color: $color-white-0;
+        }
+        &:focus + .input-group-append {
+            .input-group-text {
+                border-top: 1px solid $color-gray-6;
+                border-right: 1px solid $color-gray-6;
+                border-bottom: 1px solid $color-gray-6;
+                color: $color-red-0;
+                background-color: $color-white-0;
+                &:hover {
+                    color: $color-white-0;
+                    background-color: $color-red-0;
+                }
+            }
+        }
+    }
+    .input-group-append {
+        .input-group-text {
+            border: 1px solid $color-white-cream;
+            background-color: $color-white-cream;
+            color: $color-red-0;
+            padding: 0 $pd-1 + 4;
+            &:hover {
+                color: $color-white-0;
+                background-color: $color-red-0;
+            }
+        }
+    }
+}
+.line-gradient {
+    width: 100%;
+    height: 7px;
+    background: linear-gradient(
+        90deg,
+        rgb(100, 91, 83) 0%,
+        rgb(235, 82, 82) 18.23%,
+        rgb(247, 143, 47) 34.37%,
+        rgb(244, 193, 81) 48.96%,
+        rgb(82, 187, 118) 66.15%,
+        rgb(38, 165, 215) 82.29%,
+        rgb(224, 105, 183) 100%
+    );
+}
+.header__left {
+    display: flex;
+    align-items: center;
+    .navbar-brand {
+        img {
+            width: 110px;
+        }
+    }
+    // thằng nào không khai báo flex-row mặc định là flex-grow: 0;
+    // thằng nào dc khai báo sẽ được hưởng toàn khoảng trống, có bao nhiêu khoảng trống thì đẩy hết
+    // VD: Khai báo thằng 1 là 1, thằng 2 là 1, thằng 3 là 2 thì khoảng trống đó dc chia làm 4
+    .header__form {
+        flex-grow: 1;
+    }
+    .header__categories {
+        margin: 0 20px;
+        @include styleText($color-black-light, $fs-1, $fw-bold-0 - 200);
+        i {
+            color: $color-gray-2;
+        }
+    }
+}
+.header__right {
+    .navbar-nav {
+        align-items: center;
+        justify-content: space-around;
+        flex-direction: row;
+        .nav-item {
+            .nav-link {
+                @include styleText($color-black-light, $fs-1, $fw-normal);
+                padding: $pd-1 + 2 $pd-0 * 3;
+            }
+            &:hover {
+                background-color: $color-white-cream;
+            }
+            &:nth-child(3) {
+                border-radius: 50%;
+            }
+        }
+        .business {
+            position: relative;
+            .subtitle {
+                list-style: none;
+                z-index: 2;
+                display: none;
+                background-color: $color-white-0;
+                box-shadow: 0 4px 16px rgba(20, 23, 28, 0.25);
+                width: 330px;
+                position: relative;
+                li {
+                    padding: $pd-2 + 4 $pd-2 - 4;
+                    @include styleText($color-black-light, $fs-0, $fw-normal);
+                    a{
+                        text-decoration: none;
+                        @include styleText ($color-blue,$fs-1,$fw-bold-1);
+                        &:hover{
+                            @include styleText($color-black-0,$fs-1,$fw-bold-1);
+                        }
+                    }
+                }
+                &::before{
+                    content: '';
+                    position: absolute;
+                    top: -10px;
+                    left: 85%;
+                    border-bottom: 10px solid $color-white-0;
+                    border-left: 10px solid transparent;
+                    border-right: 10px solid transparent;
+                }
+            }
+            &:hover {
+                .subtitle {
+                    position: absolute;
+                    top: 51px;
+                    right: 0;
+                    display: block;
+                }
+            }
+        }
+        .teach{
+            @extend .business;
+        }
+    }
+}
+//Responsive
+.header__right {
+    @include responsive("extra-large") {
+        .business,
+        .teach {
+            display: none;
+        }
+    }
+    @include responsive("medium") {
+        .ude-btnGroup {
+            display: none;
+        }
+    }
+}
+.header__left {
+    @include responsive("medium") {
+        justify-content: center;
+        .header__categories,
+        .header__form {
+            display: none;
+        }
+    }
+}

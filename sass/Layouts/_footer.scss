@@ -1,0 +1,75 @@
+footer {
+    .myContact {
+        margin: $mg-1 * 4 auto $mg-2 + 5;
+        .more__Udemy {
+            .menubar {
+                display: flex;
+                flex-wrap: wrap;
+                flex-direction: column;
+                height: 110px;
+                list-style: none;
+                .feature {
+                    @include styleText($color-blue, $fs-1, $fw-bold-1);
+                    &:hover {
+                        @include styleText(#003845, $fs-1, $fw-bold-1);
+                    }
+                }
+                li {
+                    margin: $mg-0 + 2 0;
+                    &:not(.feature) {
+                        @include styleText($color-blue, $fs-1, $fw-normal);
+                    }
+                    a {
+                        text-decoration: none;
+                        @include styleText($color-blue, $fs-1, $fw-normal);
+                        &:hover:not(.feature) {
+                            @include styleText(#003845, $fs-1, $fw-normal);
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .copyright {
+        padding: $pd-2 + 10 0;
+        border-top: 1px solid $color-gray-6;
+        border-bottom: 7px solid $color-red-0;
+        .logo__footer {
+            img {
+                width: 110px;
+                margin: 0 $mg-1;
+            }
+            span{
+                @include styleText($color-gray-4,$fs-1,$fw-normal);
+                margin-left: $mg-1;
+            }
+        }
+        ul {
+            list-style: none;
+            li {
+                display: inline;
+                margin: 0 $mg-1;
+                a {
+                    text-decoration: none;
+                    @include styleText($color-blue, $fs-1, $fw-normal);
+                    &:hover:not(.feature) {
+                        @include styleText(#003845, $fs-1, $fw-normal);
+                    }
+                }
+            }
+        }
+    }
+}
+//RESPONSIVE
+@include responsive("medium"){
+    .more__Udemy{
+        display: none;
+    }
+    .logo__container{
+        min-width: 100%;
+    }
+    .Privacy{
+        text-align: left !important;
+        margin-top: $mg-2;
+    }
+}

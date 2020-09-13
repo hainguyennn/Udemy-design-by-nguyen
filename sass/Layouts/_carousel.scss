@@ -1,0 +1,81 @@
+.carousel {
+    background: url(../img/cover.jpg) no-repeat center center;
+    height: 500px;
+    background-size: cover;
+    position: relative;
+    .scheduel-learning {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translate(20%, -50%);
+        max-width: 460px;
+        h1 {
+            @include styleText($color-white-0, $fs-4, $fw-bold-1);
+            text-shadow: 0 2px 4px rgba(41, 48, 59, 0.55);
+        }
+        p {
+            @include styleText($color-white-0, $fs-2 - 2, $fw-normal);
+            text-shadow: 0 2px 4px rgba(41, 48, 59, 0.55);
+            line-height: $line-height-0 + 0.18;
+        }
+        .form-control {
+            padding: $pd-1 + 1 $pd-2 - 3;
+            @include styleText($color-black-0, $fs-2, $fw-bold-0 - 500 !important);
+            background-color: $color-white-0;
+            border: none;
+            &:focus + .input-group-append {
+                .input-group-text {
+                    border: 1px solid transparent;
+                }
+            }
+        }
+        .input-group-append {
+            &:hover {
+                .input-group-text {
+                    background-color: $color-red-0;
+                    color: $color-white-0;
+                }
+            }
+            .input-group-text {
+                border: 1px solid transparent;
+                background-color: $color-white-0;
+                padding: $pd-1 + 1 $pd-2 - 3;
+                cursor: pointer;
+            }
+        }
+    }
+}
+// RESPONSIVE
+.scheduel-learning{
+    @include responsive("medium"){
+        max-width: 350px;
+        h1{
+            @include styleText($color-white-0,$fs-2 * 2 !important,$fw-bold-1 !important);
+        }
+        p{
+            @include styleText($color-white-0,$fs-2 - 2,$fw-normal);
+        }
+        .form-control{
+            @include styleText($color-black-0,$fs-2 !important,$fw-normal);
+            height: 50px;
+            padding: $pd-1 + 1 $pd-1 + 7 !important;
+        }
+    }
+    @include responsive("small"){
+        max-width: 60% !important;
+        h1{
+            @include styleText($color-white-0,$fs-3 !important,$fw-bold !important);
+            line-height: 1.17;
+            margin-bottom: $mg-1;
+            text-shadow: 0 2px 4px rgba(41,48,59,.55) !important;
+        }
+        p{
+            @include styleText($color-white-0,$fs-2 - 2,$fw-normal);
+            text-shadow: 0 2px 4px rgba(41,48,59,.55);
+            margin-bottom: $mg-2 - 5;
+        }
+        .form-control{
+            @include styleText($color-black-0,$fs-0 !important,$fw-normal);
+        }
+    }
+}

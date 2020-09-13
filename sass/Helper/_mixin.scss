@@ -1,0 +1,37 @@
+// Những chỗ dùng nhiều thì làm mixin cho gọn code
+
+// Khai báo
+@mixin styleText($color,$fs,$fw) {
+    color: $color;
+    font-size: $fs;
+    font-weight: $fw;
+}
+@mixin styleButton($border-color,$bg-color,$pd-y,$pd-x,$radius){
+    border: 1px solid $border-color;
+    background-color: $bg-color;
+    padding: $pd-y $pd-x;
+    border-radius: $radius;
+}
+@mixin styleButtonHover($bd-color,$bg-color,$color){
+    border-color: $bd-color;
+    background-color: $bg-color;
+    color: $color;
+}
+//yêu cầu/ tham số: small
+// kết quả : 576px
+// giả sử $screen: small
+@mixin responsive($screen){
+    // giúp duyệt từng phần tử trong breakpoint
+    // $map: tên mảng muốn duyệt
+    @if(map-has-key($map:$breakpoints, $key:$screen)){
+        // nếu tên màn hình đúng thì lấy giá trị
+        // $value biến dùng để lưu giá trị lấy ra, lấy kích thước màn hình dựa vào tên màn hình (screen)
+        $value: map-get($map: $breakpoints, $key:$screen );
+        @media screen and (max-width:$value){
+            @content;
+        }
+    }
+    @else{
+        @warn 'Màn hình không tồn tại';
+    }
+}

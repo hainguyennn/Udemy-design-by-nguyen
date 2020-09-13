@@ -1,0 +1,49 @@
+.banner {
+    .line__color__banner {
+        background: linear-gradient(to right, $color-red-1, $color-red-2);
+        height: 8px;
+    }
+    background-color: $color-black-0;
+    .banner__content {
+        .banner__icon {
+            text-align: center;
+            @include styleText($color-white-0, $fs-4 - 8, $fw-normal);
+        }
+        .first-row {
+            margin-top: $mg-2 * 2 - 2;
+            margin-bottom: $mg-1 * 3 + 2;
+            max-width: 100%;
+        }
+        .second-row{
+            max-width: 100%;
+            .second-row__content{
+                width: 80%;
+                margin: 0 auto;
+                display: flex;
+                align-items: center;
+                h3{
+                    @include styleText($color-gray-5,$fs-3,$fw-bold-1);
+                    line-height: 1.33em;
+                    margin-bottom: $mg-1 + 6;
+                }
+                p{
+                    @include styleText($color-gray-5,$fs-0,$fw-normal);
+                    margin-bottom: $mg-2 -1;
+                }
+            }
+        }
+        .third-row{
+            padding: $pd-0 * 6 0;
+            max-width: 100%;
+        }
+    }
+}
+//RESPONSIVE
+@include responsive ("large"){
+    .first-row,.second-row,.third-row{
+        .banner__icon:not(.text__banner){
+            display: none;
+        }
+        
+    }
+}

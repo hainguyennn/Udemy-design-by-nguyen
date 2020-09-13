@@ -1,0 +1,26 @@
+.services {
+    padding: $pd-2 + 4 0;
+    background-color: $color-white-cream;
+    margin: $mg-2 + 5 0;
+    .services__item {
+        display: flex;
+        padding: $pd-2 + 4;
+        text-align: left;
+        background-color: $color-white-0;
+        height: 100%;
+        .item__icon{
+            img{
+                margin-right: 16px;
+            }
+        }
+        .item__content{
+            h3{
+                @include styleText($color-black-0,$fs-2 - 1,$fw-bold-1);
+            }
+            p{
+                margin-bottom: 0;
+                @include styleText($color-gray-4,$fs-0 + 1,$fw-normal);
+            }
+        }
+    }
+}

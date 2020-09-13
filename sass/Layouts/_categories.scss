@@ -1,0 +1,29 @@
+.topCategories{
+    padding: $pd-2 * 2 0;
+    .topCategories__content{
+        width: 85%;
+        margin: 0 auto;
+        h3{
+            @include styleText($color-black-0,$fs-3,$fw-bold-1);
+            margin-bottom: 0;
+        }
+        .Categories__item{
+            padding: $pd-0 * 3;
+            display: flex;
+            align-items: center;
+            margin: $mg-1 - 2 0;
+            background-color: $color-white-0;
+            border-radius: $border-radius;
+            box-shadow:  0 1px 3px 2px $color-black-dark;
+            transition: ease .2s;
+            cursor: pointer;
+            &:hover{
+                box-shadow: 0 2px 8px 2px rgba(20,23,28,.15);
+            }
+            i{
+                @include styleText(#14171c,$fs-2 + 12,$fw-bold);
+                padding-right: $pd-2 - 4;
+            }
+        }
+    }
+}
